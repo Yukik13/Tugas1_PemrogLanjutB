@@ -42,16 +42,17 @@ public class MVC2 {
         System.out.print("\n|Masukkan Jumlah Penarikan : Rp.");
         jumlah = input.nextInt();
         
-        if(saldo.limitsaldo()){
-            System.out.print("\n|Saldo Anda Mencapai Limit");
-        }else if(saldo.jumlahsaldo() - jumlah < saldo.limit()){
-            System.out.print("\n|Jumlah Penarikan Melebihi Limit Saldo Anda|");
-        }else if(saldo.jumlahsaldo() > jumlah && (saldo.kelipatan (jumlah) == 0)){
+        if(saldo.jumlahsaldo() > jumlah && (saldo.kelipatan (jumlah) == 0)){
             saldo.tariksaldo(jumlah);
             System.out.print("\n|Uang Yang Anda Tarik : Rp."+jumlah);
+        }else if(saldo.jumlahsaldo() - jumlah < saldo.limit()){
+            System.out.print("\n|Jumlah Penarikan Melebihi Limit Saldo Anda|");
+        }else if(saldo.limitsaldo()){
+            System.out.print("\n|Saldo Anda Mencapai Limit");
         }else{
             System.out.print("|Mohon Maaf, Harus Kelipatan 50000 ( Lima Puluh Ribu )");
         }
+    
     }
     
     public void setor(DAO2 saldo){
